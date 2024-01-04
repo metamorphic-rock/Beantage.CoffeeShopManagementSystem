@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="Handlers\Commands\" />
     <Folder Include="Handlers\Query\" />
+    <Folder Include="Helpers\" />
     <Folder Include="Pages\Shared\Components\" />
     <Folder Include="Pages\Shared\Partial Views\Models\" />
     <Folder Include="Pages\Shared\Partial Views\Views\" />

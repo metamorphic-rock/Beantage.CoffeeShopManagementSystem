@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beantage.CoffeeShopManagementSystem.Domain.Enums
+namespace Beantage.CoffeeShopManagementSystem.Domain.Models
 {
     internal class ProductCategory
     {

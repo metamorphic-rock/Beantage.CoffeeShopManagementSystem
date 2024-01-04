@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Infrastructure\" />
+    <Folder Include="Persistence\Data\" />
+    <Folder Include="Persistence\Repository\" />
+  </ItemGroup>
+
 </Project>
