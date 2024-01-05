@@ -7,11 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mappers\DboToDtoMappers\" />
-    <Folder Include="Mappers\DtoToDboMappers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\Beantage.CoffeeShopManagementSystem.Contract\Beantage.CoffeeShopManagementSystem.Contract.csproj" />
     <ProjectReference Include="..\Beantage.CoffeeShopManagementSystem.Domain\Beantage.CoffeeShopManagementSystem.Domain.csproj" />
     <ProjectReference Include="..\Beantage.CoffeeShopManagementSystem.Infrastructure\Beantage.CoffeeShopManagementSystem.Infrastructure.csproj" />
   </ItemGroup>

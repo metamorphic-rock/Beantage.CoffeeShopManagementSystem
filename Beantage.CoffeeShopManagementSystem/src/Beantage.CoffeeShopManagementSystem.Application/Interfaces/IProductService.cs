@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Beantage.CoffeeShopManagementSystem.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,4 +9,5 @@ namespace Beantage.CoffeeShopManagementSystem.Application.Interfaces;
 
 public interface IProductService
 {
+    public Task<Product> CreateProduct(Product product);
 }

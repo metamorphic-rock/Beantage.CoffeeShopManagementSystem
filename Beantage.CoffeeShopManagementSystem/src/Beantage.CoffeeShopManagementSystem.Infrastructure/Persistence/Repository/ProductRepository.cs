@@ -16,7 +16,7 @@ public class ProductRepository : IProductRepository
     {
         _appDbContext = appDbContext;
     }
-    public async Task<bool> CreateProduct(Product product)
+    public async Task<Product> CreateProduct(Product product)
     {
         var item = new Product
         {
@@ -29,7 +29,7 @@ public class ProductRepository : IProductRepository
 
         await _appDbContext.Products.AddAsync(item);
         var isSuccess = await _appDbContext.SaveChangesAsync();
-        return isSuccess > 0;
+        return item;
     }
 
     public async Task DeleteProduct(int productId)

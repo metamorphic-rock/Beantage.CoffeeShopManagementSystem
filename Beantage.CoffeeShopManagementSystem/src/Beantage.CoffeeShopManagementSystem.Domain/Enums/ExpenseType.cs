@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beantage.CoffeeShopManagementSystem.Application.Contracts;
+namespace Beantage.CoffeeShopManagementSystem.Domain.Enums;
 
-public class ProductCategoryDto
+public enum ExpenseType
 {
 }
