@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beantage.CoffeeShopManagementSystem.Domain.Models;
+namespace Beantage.CoffeeShopManagementSystem.Domain.Interfaces;
 
-public class Sale
+public interface IProductRepository
 {
 }

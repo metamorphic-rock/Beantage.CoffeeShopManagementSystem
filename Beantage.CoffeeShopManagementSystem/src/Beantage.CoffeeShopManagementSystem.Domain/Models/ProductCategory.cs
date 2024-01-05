@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beantage.CoffeeShopManagementSystem.Domain.Models
+namespace Beantage.CoffeeShopManagementSystem.Domain.Models;
+
+public class ProductCategory
 {
-    internal class ProductCategory
-    {
-    }
 }

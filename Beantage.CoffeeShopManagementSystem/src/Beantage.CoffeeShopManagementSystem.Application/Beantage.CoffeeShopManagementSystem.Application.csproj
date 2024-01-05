@@ -12,4 +12,9 @@
     <Folder Include="Services\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Beantage.CoffeeShopManagementSystem.Domain\Beantage.CoffeeShopManagementSystem.Domain.csproj" />
+    <ProjectReference Include="..\Beantage.CoffeeShopManagementSystem.Infrastructure\Beantage.CoffeeShopManagementSystem.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

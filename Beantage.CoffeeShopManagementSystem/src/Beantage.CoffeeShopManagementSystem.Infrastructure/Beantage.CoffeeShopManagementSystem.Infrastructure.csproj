@@ -9,7 +9,14 @@
   <ItemGroup>
     <Folder Include="Infrastructure\" />
     <Folder Include="Persistence\Data\" />
-    <Folder Include="Persistence\Repository\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Beantage.CoffeeShopManagementSystem.Domain\Beantage.CoffeeShopManagementSystem.Domain.csproj" />
   </ItemGroup>
 
 </Project>
