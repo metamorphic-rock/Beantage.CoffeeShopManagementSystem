@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beantage.CoffeeShopManagementSystem.Domain.Interfaces;
+namespace Beantage.CoffeeShopManagementSystem.Domain.Interfaces.Repository;
 
-public interface IProductRepository
+public interface IProductCategoryRepository
 {
 }

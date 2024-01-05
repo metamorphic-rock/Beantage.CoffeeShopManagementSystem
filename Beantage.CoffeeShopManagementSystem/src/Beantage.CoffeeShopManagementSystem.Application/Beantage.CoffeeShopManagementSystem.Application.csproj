@@ -7,9 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mappers\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
+    <Folder Include="Mappers\DboToDtoMappers\" />
+    <Folder Include="Mappers\DtoToDboMappers\" />
   </ItemGroup>
 
   <ItemGroup>
