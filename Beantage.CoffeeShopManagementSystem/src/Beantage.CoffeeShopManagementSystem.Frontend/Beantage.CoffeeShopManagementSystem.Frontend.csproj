@@ -15,4 +15,9 @@
     <Folder Include="Pages\Shared\Partial Views\Views\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Beantage.CoffeeShopManagementSystem.Api\Beantage.CoffeeShopManagementSystem.Api.csproj" />
+    <ProjectReference Include="..\Beantage.CoffeeShopManagementSystem.Contract\Beantage.CoffeeShopManagementSystem.Contract.csproj" />
+  </ItemGroup>
+
 </Project>
