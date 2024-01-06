@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Beantage.CoffeeShopManagementSystem.Domain.Interfaces.Repository;
+using Beantage.CoffeeShopManagementSystem.Application.Interfaces.Repository;
 using Beantage.CoffeeShopManagementSystem.Domain.Models;
 using Beantage.CoffeeShopManagementSystem.Infrastructure.Persistence.Data;
 

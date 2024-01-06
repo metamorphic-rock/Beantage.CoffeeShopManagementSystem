@@ -1,4 +1,4 @@
-﻿using Beantage.CoffeeShopManagementSystem.Domain.Interfaces.Repository;
+﻿using Beantage.CoffeeShopManagementSystem.Application.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;

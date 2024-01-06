@@ -1,4 +1,4 @@
-﻿using Beantage.CoffeeShopManagementSystem.Application.Interfaces;
+﻿using Beantage.CoffeeShopManagementSystem.Application.Interfaces.Services;
 using Beantage.CoffeeShopManagementSystem.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

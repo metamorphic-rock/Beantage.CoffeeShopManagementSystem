@@ -12,11 +12,13 @@
 
   <ItemGroup>
     <Folder Include="Interfaces\" />
+    <Folder Include="Configurations\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Beantage.CoffeeShopManagementSystem.Application\Beantage.CoffeeShopManagementSystem.Application.csproj" />
     <ProjectReference Include="..\Beantage.CoffeeShopManagementSystem.Contract\Beantage.CoffeeShopManagementSystem.Contract.csproj" />
+    <ProjectReference Include="..\Beantage.CoffeeShopManagementSystem.Infrastructure\Beantage.CoffeeShopManagementSystem.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

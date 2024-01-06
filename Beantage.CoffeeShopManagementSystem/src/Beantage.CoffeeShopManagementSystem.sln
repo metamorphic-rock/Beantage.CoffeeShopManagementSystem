@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beantage.CoffeeShopManageme
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beantage.CoffeeShopManagementSystem.Infrastructure", "Beantage.CoffeeShopManagementSystem.Infrastructure\Beantage.CoffeeShopManagementSystem.Infrastructure.csproj", "{10E1D81A-8B4D-4086-AFDF-8F9DD8906ACF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beantage.CoffeeShopManagementSystem.Contract", "Beantage.CoffeeShopManagementSystem.Contract\Beantage.CoffeeShopManagementSystem.Contract.csproj", "{A5C603F2-0144-4D38-969D-309AE5C315C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beantage.CoffeeShopManagementSystem.Contract", "Beantage.CoffeeShopManagementSystem.Contract\Beantage.CoffeeShopManagementSystem.Contract.csproj", "{A5C603F2-0144-4D38-969D-309AE5C315C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

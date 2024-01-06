@@ -1,5 +1,5 @@
-﻿using Beantage.CoffeeShopManagementSystem.Application.Interfaces;
-using Beantage.CoffeeShopManagementSystem.Domain.Interfaces.Repository;
+﻿using Beantage.CoffeeShopManagementSystem.Application.Interfaces.Services;
+using Beantage.CoffeeShopManagementSystem.Application.Interfaces.Repository;
 using Beantage.CoffeeShopManagementSystem.Domain.Models;
 using System;
 using System.Collections.Generic;

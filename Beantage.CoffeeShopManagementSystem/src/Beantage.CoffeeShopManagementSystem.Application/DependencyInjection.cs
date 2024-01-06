@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beantage.CoffeeShopManagementSystem.Domain.Interfaces.Repository
+namespace Beantage.CoffeeShopManagementSystem.Application
 {
-    internal interface IEmployeeRepository
+    internal class DependencyInjection
     {
     }
 }

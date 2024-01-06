@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beantage.CoffeeShopManagementSystem.Domain.Interfaces.Services;
+namespace Beantage.CoffeeShopManagementSystem.Application.Interfaces.Services;
 
-public interface IProductCategoryService
+public interface IEmployeeService
 {
 }
