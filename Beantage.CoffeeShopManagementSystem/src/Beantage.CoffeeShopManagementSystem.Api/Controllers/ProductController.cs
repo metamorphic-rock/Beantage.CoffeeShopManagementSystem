@@ -16,7 +16,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpPost]
-    [Route("createProduct")]
+    [Route("create")]
     public async Task<ActionResult<Product>> CreateProduct(Product product)
     {
         var item = await _productService.CreateProduct(product);

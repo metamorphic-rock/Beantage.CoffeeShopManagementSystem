@@ -5,6 +5,7 @@ using Beantage.CoffeeShopManagementSystem.Infrastructure.Persistence.Repository;
 using Beantage.CoffeeShopManagementSystem.Infrastructure.Persistence.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Beantage.CoffeeShopManagementSystem.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,10 +16,7 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 // Add db conection
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
-    b => b.MigrationsAssembly("Beantage.CoffeeShopManagementSystem.Api")), 
-    ServiceLifetime.Scoped);
+builder.Services.ImplementPersistance(builder.Configuration);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

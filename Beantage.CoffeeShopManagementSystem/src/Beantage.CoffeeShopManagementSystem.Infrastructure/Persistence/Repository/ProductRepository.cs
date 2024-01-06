@@ -11,8 +11,8 @@ namespace Beantage.CoffeeShopManagementSystem.Infrastructure.Persistence.Reposit
 
 public class ProductRepository : IProductRepository
 {
-    private readonly AppDbContext _appDbContext;
-    public ProductRepository(AppDbContext appDbContext)
+    private readonly BeantageDbContext _appDbContext;
+    public ProductRepository(BeantageDbContext appDbContext)
     {
         _appDbContext = appDbContext;
     }
@@ -23,7 +23,7 @@ public class ProductRepository : IProductRepository
             Name = product.Name,
             UnitPrice = product.UnitPrice,
             Description = product.Description,
-            Category = product.Category,
+            //Category = product.Category,
             CreatedOn = product.CreatedOn,
         };
 

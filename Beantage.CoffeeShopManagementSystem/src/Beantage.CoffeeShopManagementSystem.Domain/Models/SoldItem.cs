@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Beantage.CoffeeShopManagementSystem.Domain.Models;
 
-public class Payslip
+public class SoldItem
 {
     [Key]
     public int Id { get; set; }
