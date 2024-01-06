@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace Beantage.CoffeeShopManagementSystem.Domain.Models;
 
-public class Sale
+public class User
 {
     [Key]
     public int Id { get; set; }
-    [Required]
-    public List<SoldItem> SoldItems { get; set; }
-    [Required]
-    public decimal TotalPrice { get; set; }
-    public DateTime TransactionDate { get; set; }
 }

@@ -1,11 +1,8 @@
+using Beantage.CoffeeShopManagementSystem.Application.Interfaces.Repository;
 using Beantage.CoffeeShopManagementSystem.Application.Interfaces.Services;
 using Beantage.CoffeeShopManagementSystem.Application.Services;
-using Beantage.CoffeeShopManagementSystem.Application.Interfaces.Repository;
-using Beantage.CoffeeShopManagementSystem.Infrastructure.Persistence.Repository;
-using Beantage.CoffeeShopManagementSystem.Infrastructure.Persistence.Data;
-using Microsoft.Extensions.Configuration;
-using Microsoft.EntityFrameworkCore;
 using Beantage.CoffeeShopManagementSystem.Infrastructure.Persistence;
+using Beantage.CoffeeShopManagementSystem.Infrastructure.Persistence.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
