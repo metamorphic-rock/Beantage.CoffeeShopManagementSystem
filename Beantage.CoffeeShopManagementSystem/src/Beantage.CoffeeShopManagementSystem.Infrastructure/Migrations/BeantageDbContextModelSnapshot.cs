@@ -68,15 +68,20 @@ namespace Beantage.CoffeeShopManagementSystem.Infrastructure.Migrations
                     b.Property<int>("QuantityAvailable")
                         .HasColumnType("int");
 
+                    b.Property<int>("TypeId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("TypeId");
+
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Beantage.CoffeeShopManagementSystem.Domain.Models.ProductCategory", b =>
+            modelBuilder.Entity("Beantage.CoffeeShopManagementSystem.Domain.Models.ProductType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -84,9 +89,31 @@ namespace Beantage.CoffeeShopManagementSystem.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsBeverage")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("ProductCategories");
+                    b.ToTable("ProductTypes");
+                });
+
+            modelBuilder.Entity("Beantage.CoffeeShopManagementSystem.Domain.Models.Product", b =>
+                {
+                    b.HasOne("Beantage.CoffeeShopManagementSystem.Domain.Models.ProductType", "Type")
+                        .WithMany()
+                        .HasForeignKey("TypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Type");
                 });
 #pragma warning restore 612, 618
         }

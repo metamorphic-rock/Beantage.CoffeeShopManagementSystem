@@ -23,7 +23,7 @@ public class ProductRepository : IProductRepository
             Name = product.Name,
             UnitPrice = product.UnitPrice,
             Description = product.Description,
-            //Category = product.Category,
+            Type = product.Type,
             CreatedOn = product.CreatedOn,
         };
 

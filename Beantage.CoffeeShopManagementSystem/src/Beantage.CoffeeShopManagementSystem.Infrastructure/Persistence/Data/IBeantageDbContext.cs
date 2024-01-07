@@ -11,6 +11,6 @@ namespace Beantage.CoffeeShopManagementSystem.Infrastructure.Persistence.Data;
 public interface IBeantageDbContext
 {
     public DbSet<Product> Products { get; set; }
-    public DbSet<ProductCategory> ProductCategories { get; set; }
+    public DbSet<ProductType> ProductTypes { get; set; }
     public DbSet<Employee> Employees { get; set; }
 }

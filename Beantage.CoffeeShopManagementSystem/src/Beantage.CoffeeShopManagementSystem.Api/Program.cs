@@ -10,7 +10,11 @@ builder.Services.AddControllers();
 
 // Add services to the container.
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductTypeService, ProductTypeService>();
+
+// Add repositories to the container
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductTypeRepository, ProductTypeRepository>();
 
 // Add db conection
 builder.Services.ImplementPersistance(builder.Configuration);
