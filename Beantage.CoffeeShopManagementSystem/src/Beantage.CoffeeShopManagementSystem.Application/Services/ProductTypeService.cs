@@ -37,7 +37,7 @@ public class ProductTypeService : IProductTypeService
 
     public async Task<IEnumerable<ProductType>> GetAllProductType()
     {
-        throw new NotImplementedException();
+        return await _productTypeRepository.GetAllProductType();
     }
 
     public async Task<ProductType> GetProductTypeById(int id)

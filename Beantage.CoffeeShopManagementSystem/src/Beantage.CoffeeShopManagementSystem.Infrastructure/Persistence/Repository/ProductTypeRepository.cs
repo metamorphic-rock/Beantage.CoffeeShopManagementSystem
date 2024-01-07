@@ -1,6 +1,7 @@
 ﻿using Beantage.CoffeeShopManagementSystem.Application.Interfaces.Repository;
 using Beantage.CoffeeShopManagementSystem.Domain.Models;
 using Beantage.CoffeeShopManagementSystem.Infrastructure.Persistence.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,8 @@ public class ProductTypeRepository : IProductTypeRepository
 
     public async Task<IEnumerable<ProductType>> GetAllProductType()
     {
-        throw new NotImplementedException();
+        var items = _appDbContext.ProductTypes.ToList();
+        return items;
     }
 
     public async Task<ProductType> GetProductTypeById(int id)

@@ -28,6 +28,10 @@ public class ProductService : IProductService
             throw new Exception("Type id cannot be null or 0");
        }
        product.Type = await _productTypeRepository.GetProductTypeById(product.TypeId);
+       if (product.Type == null)
+       {
+            throw new Exception("Type is does not exist");
+       }
        var item = await _productRepository.CreateProduct(product);
        return item;
     }
