@@ -1,6 +1,5 @@
 ﻿using Beantage.CoffeeShopManagementSystem.Application.Interfaces.Services;
-using Beantage.CoffeeShopManagementSystem.Domain.Models;
-using Microsoft.AspNetCore.Http;
+using Beantage.CoffeeShopManagementSystem.Contract.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beantage.CoffeeShopManagementSystem.Api.Controllers;
@@ -16,13 +15,33 @@ public class ProductController : ControllerBase
     }
 
     [HttpPost]
-    [Route("create")]
-    public async Task<ActionResult<Product>> CreateProduct(Product product)
+    [Route("addProduct")]
+    public async Task<ActionResult<ProductDto>> CreateProduct(ProductDto product)
     {
         var item = await _productService.CreateProduct(product);
         if (item == null)
         {
-            return BadRequest();
+            return NotFound();
+        }
+        return Ok(item);
+    }
+
+    [HttpGet]
+    [Route("getAllProducts")]
+    public async Task<ActionResult<IEnumerable<ProductDto>>> GetAllProducts()
+    {
+        var items = await _productService.GetAllProducts();
+        return Ok(items);
+    }
+
+    [HttpGet]
+    [Route("getProduct/{productId:int}")]
+    public async Task<ActionResult<ProductDto>> GetProductById(int productId)
+    {
+        var item = await _productService.GetProductById(productId);
+        if (item == null)
+        {
+            return NotFound();
         }
         return Ok(item);
     }

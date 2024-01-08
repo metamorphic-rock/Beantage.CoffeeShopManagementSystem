@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Beantage.CoffeeShopManagementSystem.Contract.Dtos;
+using Beantage.CoffeeShopManagementSystem.Application.Mappers;
 
 namespace Beantage.CoffeeShopManagementSystem.Application.Services;
 
@@ -21,18 +23,51 @@ public class ProductService : IProductService
         _productTypeRepository = productTypeRepository;
     }
 
-    public async Task<Product> CreateProduct(Product product)
+    public async Task<ProductDto> CreateProduct(ProductDto product)
     {
-       if (product.TypeId == 0)
+       var productItem = product.MapToDbo();
+       if (productItem.TypeId == 0)
        {
             throw new Exception("Type id cannot be null or 0");
        }
-       product.Type = await _productTypeRepository.GetProductTypeById(product.TypeId);
-       if (product.Type == null)
+       productItem.Type = await _productTypeRepository.GetProductTypeById(productItem.TypeId);
+       if (productItem.Type == null)
        {
             throw new Exception("Type is does not exist");
        }
-       var item = await _productRepository.CreateProduct(product);
-       return item;
+       var item = await _productRepository.CreateProduct(productItem);
+       return item.MapToDto();
+    }
+
+    public async Task<ProductDto> UpdateProduct(int productId, ProductDto product)
+    {
+        var item = await _productRepository.GetProductById(productId);
+        var productDbo = item.MapToExistingDbo(product);
+        if (item == null)
+        {
+            throw new Exception("product cannot be found");
+        }
+        item.Id = productDbo.Id;
+        item.Type = await _productTypeRepository.GetProductTypeById(productId);
+        item.TypeId = productDbo.TypeId;
+        item.Description = productDbo.Description;
+        item.CreatedOn = productDbo.CreatedOn;
+        item.UnitPrice = productDbo.UnitPrice;
+        item.IsDiscontinued = productDbo.IsDiscontinued;
+
+        await _productRepository.UpdateProduct(productId, productDbo);
+        return item.MapToDto();
+    }
+
+    public async Task<ProductDto> GetProductById(int productId)
+    {
+        var item = await _productRepository.GetProductById(productId);
+        return item.MapToDto();
+    }
+
+    public async Task<IEnumerable<ProductDto>> GetAllProducts()
+    {
+        var items = await _productRepository.GetAllProducts();
+        return items.MapToDtos();
     }
 }

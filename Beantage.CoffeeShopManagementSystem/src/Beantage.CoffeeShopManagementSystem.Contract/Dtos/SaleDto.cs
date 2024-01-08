@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beantage.CoffeeShopManagementSystem.Application.Contracts
+namespace Beantage.CoffeeShopManagementSystem.Contract.Dtos;
+
+public class SaleDto
 {
-    internal class PayslipDto
-    {
-    }
 }

@@ -23,12 +23,13 @@ public class ProductRepository : IProductRepository
             Name = product.Name,
             UnitPrice = product.UnitPrice,
             Description = product.Description,
-            Type = product.Type,
+            TypeId = product.Type.Id,
+            QuantityAvailable = product.QuantityAvailable,
             CreatedOn = product.CreatedOn,
         };
 
         await _appDbContext.Products.AddAsync(item);
-        var isSuccess = await _appDbContext.SaveChangesAsync();
+        await _appDbContext.SaveChangesAsync();
         return item;
     }
 
@@ -39,16 +40,19 @@ public class ProductRepository : IProductRepository
 
     public async Task<IEnumerable<Product>> GetAllProducts()
     {
-        throw new NotImplementedException();
+        var items = _appDbContext.Products.ToList();
+        return items;
     }
 
     public async Task<Product> GetProductById(int productId)
     {
-        throw new NotImplementedException();
+       var item = await _appDbContext.Products.FindAsync(productId);
+       return item;
     }
 
     public async Task UpdateProduct(int productId, Product product)
     {
-        throw new NotImplementedException();
+        var item = _appDbContext.Products.Update(product);
+        await _appDbContext.SaveChangesAsync();
     }
 }
