@@ -1,5 +1,7 @@
 ﻿using Beantage.CoffeeShopManagementSystem.Application.Interfaces.Repository;
 using Beantage.CoffeeShopManagementSystem.Application.Interfaces.Services;
+using Beantage.CoffeeShopManagementSystem.Application.Mappers;
+using Beantage.CoffeeShopManagementSystem.Contract.Dtos;
 using Beantage.CoffeeShopManagementSystem.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -16,7 +18,7 @@ public class ProductTypeService : IProductTypeService
     {
         _productTypeRepository = productTypeRepository;
     }
-    public async Task<ProductType> CreateProductType(ProductType productType)
+    public async Task<ProductTypeDto> CreateProductType(ProductTypeDto productType)
     {
         if(productType == null)
         {
@@ -26,23 +28,28 @@ public class ProductTypeService : IProductTypeService
         {
             throw new Exception("This type already existed");
         }
-        var item = await _productTypeRepository.CreateProductType(productType);
-        return item;
+        var item = await _productTypeRepository.CreateProductType(productType.MapToDbo());
+        return item.MapToDto();
     }
 
     public async Task DeleteProductType(int typeId)
     {
-        throw new NotImplementedException();
+        var item = _productTypeRepository.DeleteProductType(typeId);
     }
 
-    public async Task<IEnumerable<ProductType>> GetAllProductType()
+    public async Task<IEnumerable<ProductTypeDto>> GetAllProductType()
     {
-        return await _productTypeRepository.GetAllProductType();
+        var item = await _productTypeRepository.GetAllProductType();
+        if (item == null)
+        {
+            throw new Exception("product type does not exist");
+        }
+        return item.MapToDtos();
     }
 
     public async Task<ProductType> GetProductTypeById(int id)
     {
-        throw new NotImplementedException();
+        return await _productTypeRepository.GetProductTypeById(id);
     }
 
     public async Task<ProductType> UpdateProductType(int typeId, ProductType productType)

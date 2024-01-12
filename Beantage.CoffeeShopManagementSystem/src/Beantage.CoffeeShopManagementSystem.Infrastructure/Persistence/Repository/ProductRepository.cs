@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Beantage.CoffeeShopManagementSystem.Application.Interfaces.Repository;
 using Beantage.CoffeeShopManagementSystem.Domain.Models;
 using Beantage.CoffeeShopManagementSystem.Infrastructure.Persistence.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Beantage.CoffeeShopManagementSystem.Infrastructure.Persistence.Repository;
 
@@ -35,7 +36,13 @@ public class ProductRepository : IProductRepository
 
     public async Task DeleteProduct(int productId)
     {
-        throw new NotImplementedException();
+        var item = await _appDbContext.Products.FirstOrDefaultAsync(x => x.Id == productId);
+        if (item == null)
+        {
+            throw new Exception("Cannot find the product");
+        }
+        _appDbContext.Products.Remove(item);
+        await _appDbContext.SaveChangesAsync();
     }
 
     public async Task<IEnumerable<Product>> GetAllProducts()
@@ -46,7 +53,7 @@ public class ProductRepository : IProductRepository
 
     public async Task<Product> GetProductById(int productId)
     {
-       var item = await _appDbContext.Products.FindAsync(productId);
+       var item = await _appDbContext.Products.FirstOrDefaultAsync(x=> x.Id == productId);
        return item;
     }
 

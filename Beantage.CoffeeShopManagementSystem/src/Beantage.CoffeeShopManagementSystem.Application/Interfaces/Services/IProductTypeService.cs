@@ -1,4 +1,5 @@
 ﻿using Beantage.CoffeeShopManagementSystem.Domain.Models;
+using Beantage.CoffeeShopManagementSystem.Contract.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace Beantage.CoffeeShopManagementSystem.Application.Interfaces.Services;
 
 public interface IProductTypeService
 {
-    public Task<ProductType> CreateProductType(ProductType productType);
+    public Task<ProductTypeDto> CreateProductType(ProductTypeDto productType);
     public Task<ProductType> UpdateProductType(int typeId, ProductType productType);
     public Task DeleteProductType(int typeId);
-    public Task<IEnumerable<ProductType>> GetAllProductType();
+    public Task<IEnumerable<ProductTypeDto>> GetAllProductType();
     public Task<ProductType> GetProductTypeById(int id);
 }

@@ -32,7 +32,13 @@ public class ProductTypeRepository : IProductTypeRepository
 
     public async Task DeleteProductType(int typeId)
     {
-        throw new NotImplementedException();
+        var item = await _appDbContext.ProductTypes.FirstOrDefaultAsync(x => x.Id == typeId);
+        if (item == null)
+        {
+            throw new Exception("Cannot find id");
+        }
+        _appDbContext.ProductTypes.Remove(item);
+        await _appDbContext.SaveChangesAsync();
     }
 
     public async Task<IEnumerable<ProductType>> GetAllProductType()
@@ -43,7 +49,7 @@ public class ProductTypeRepository : IProductTypeRepository
 
     public async Task<ProductType> GetProductTypeById(int id)
     {
-        var item = await _appDbContext.ProductTypes.FindAsync(id);
+        var item = await _appDbContext.ProductTypes.FirstOrDefaultAsync(x => x.Id == id);
         return item;
     }
 
