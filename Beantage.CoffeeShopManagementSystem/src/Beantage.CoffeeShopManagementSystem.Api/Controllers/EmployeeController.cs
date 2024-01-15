@@ -7,4 +7,5 @@ namespace Beantage.CoffeeShopManagementSystem.Api.Controllers;
 [ApiController]
 public class EmployeeController : ControllerBase
 {
+
 }

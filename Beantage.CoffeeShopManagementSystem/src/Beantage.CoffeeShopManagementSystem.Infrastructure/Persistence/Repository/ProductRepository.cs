@@ -17,21 +17,12 @@ public class ProductRepository : IProductRepository
     {
         _appDbContext = appDbContext;
     }
+
     public async Task<Product> CreateProduct(Product product)
     {
-        var item = new Product
-        {
-            Name = product.Name,
-            UnitPrice = product.UnitPrice,
-            Description = product.Description,
-            TypeId = product.Type.Id,
-            QuantityAvailable = product.QuantityAvailable,
-            CreatedOn = product.CreatedOn,
-        };
-
-        await _appDbContext.Products.AddAsync(item);
+        await _appDbContext.Products.AddAsync(product);
         await _appDbContext.SaveChangesAsync();
-        return item;
+        return product;
     }
 
     public async Task DeleteProduct(int productId)
@@ -45,6 +36,16 @@ public class ProductRepository : IProductRepository
         await _appDbContext.SaveChangesAsync();
     }
 
+    public Task<IEnumerable<Product>> GetAllBeverage()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<Product>> GetAllNonBeverage()
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<IEnumerable<Product>> GetAllProducts()
     {
         var items = _appDbContext.Products.ToList();
@@ -55,6 +56,11 @@ public class ProductRepository : IProductRepository
     {
        var item = await _appDbContext.Products.FirstOrDefaultAsync(x=> x.Id == productId);
        return item;
+    }
+
+    public Task<IEnumerable<Product>> GetProductsByType(int typeId)
+    {
+        throw new NotImplementedException();
     }
 
     public async Task UpdateProduct(int productId, Product product)

@@ -35,8 +35,19 @@ public class ProductService : IProductService
        {
             throw new Exception("Type is does not exist");
        }
-       var item = await _productRepository.CreateProduct(productItem);
-       return item.MapToDto();
+
+        var item = new Product
+        {
+            Name = product.Name,
+            UnitPrice = product.UnitPrice,
+            Description = product.Description,
+            TypeId = product.Type.Id,
+            QuantityAvailable = product.QuantityAvailable,
+            CreatedOn = product.CreatedOn,
+        };
+
+       var itemDbo = await _productRepository.CreateProduct(item);
+       return itemDbo.MapToDto();
     }
 
     public async Task<ProductDto> UpdateProduct(int productId, ProductDto product)

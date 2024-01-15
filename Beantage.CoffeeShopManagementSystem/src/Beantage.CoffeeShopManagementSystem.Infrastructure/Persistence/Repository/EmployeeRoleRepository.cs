@@ -8,29 +8,29 @@ using System.Threading.Tasks;
 
 namespace Beantage.CoffeeShopManagementSystem.Infrastructure.Persistence.Repository;
 
-public class EmployeeRepository : IEmployeeRepository
+public class EmployeeRoleRepository : IEmployeeRoleRepository
 {
-    public Task<Employee> CreateEmployee(Employee employee)
+    public Task<EmployeeRole> CreateEmployeeRole(EmployeeRole employeeRole)
     {
         throw new NotImplementedException();
     }
 
-    public Task DeleteEmployee(Employee employee)
+    public Task DeleteEmployeeRole(int roleId)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<Employee>> GetAllEmployees()
+    public Task<IEnumerable<EmployeeRole>> GetAllEmployeeRoles()
     {
         throw new NotImplementedException();
     }
 
-    public Task<Employee> GetEmplopyeeById(int id)
+    public Task<EmployeeRole> GetEmployeeRoleById(int id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Employee> UpdateEmployee(Employee employee)
+    public Task<EmployeeRole> UpdateEmployeeRole(int roleId, EmployeeRole employeeRole)
     {
         throw new NotImplementedException();
     }
