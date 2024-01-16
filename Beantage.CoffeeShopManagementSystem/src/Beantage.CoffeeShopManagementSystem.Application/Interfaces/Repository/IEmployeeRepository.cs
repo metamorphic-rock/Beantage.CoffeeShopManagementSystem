@@ -10,8 +10,8 @@ namespace Beantage.CoffeeShopManagementSystem.Application.Interfaces.Repository;
 public interface IEmployeeRepository
 {
     public Task<Employee> CreateEmployee(Employee employee);
-    public Task<Employee> UpdateEmployee(Employee employee);
+    public Task<Employee> UpdateEmployee(int employeeId, Employee employee);
     public Task<IEnumerable<Employee>> GetAllEmployees();
     public Task<Employee> GetEmplopyeeById (int id);
-    public Task DeleteEmployee(Employee employee);
+    public Task DeleteEmployee(int employeeId);
 }
