@@ -1,5 +1,7 @@
 ﻿using Beantage.CoffeeShopManagementSystem.Application.Interfaces.Repository;
 using Beantage.CoffeeShopManagementSystem.Domain.Models;
+using Beantage.CoffeeShopManagementSystem.Infrastructure.Persistence.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,28 +12,61 @@ namespace Beantage.CoffeeShopManagementSystem.Infrastructure.Persistence.Reposit
 
 public class EmployeeRepository : IEmployeeRepository
 {
-    public Task<Employee> CreateEmployee(Employee employee)
+	private readonly BeantageDbContext _appDbContext;
+	public EmployeeRepository(BeantageDbContext appDbContext)
+	{
+		_appDbContext = appDbContext;
+	}
+    public async Task<Employee> CreateEmployee(Employee employee)
     {
-        throw new NotImplementedException();
+        await _appDbContext.Employees.AddAsync(employee);
+		await _appDbContext.SaveChangesAsync();
+		return employee;
     }
 
-    public Task DeleteEmployee(Employee employee)
+    public async Task DeleteEmployee(int EmployeeId)
     {
-        throw new NotImplementedException();
+        var item = await _appDbContext.Employees.FirstOrDefaultAsync(x => x.Id == EmployeeId);
+		if (item == null)
+		{
+			throw new Exception("Cannot find the item");
+		}
+		_appDbContext.Employees.Remove(item);
+		await _appDbContext.SaveChangesAsync();
     }
 
-    public Task<IEnumerable<Employee>> GetAllEmployees()
+    public async Task<IEnumerable<Employee>> GetAllEmployees()
     {
-        throw new NotImplementedException();
+        return await _appDbContext.Employees.ToListAsync();
     }
 
-    public Task<Employee> GetEmplopyeeById(int id)
+    public async Task<Employee> GetEmplopyeeById(int id)
     {
-        throw new NotImplementedException();
+		var item = await _appDbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
+		return item;
     }
 
-    public Task<Employee> UpdateEmployee(Employee employee)
+    public async Task<Employee> UpdateEmployee(int employeeId, Employee employee)
     {
-        throw new NotImplementedException();
+        var item = await _appDbContext.Employees.FirstOrDefaultAsync(x => x.Id == employeeId);
+		if (item == null)
+		{
+			throw new Exception("Cannot find the item");
+		}
+		item.FirstName = employee.FirstName;
+		item.LastName = employee.LastName;
+		item.EmailAddress = employee.EmailAddress;
+		item.Address = employee.Address;
+		item.ContactNumber = employee.ContactNumber;
+		item.Attendances = employee.Attendances;
+		item.DateHired = employee.DateHired;
+		item.Role = employee.Role;
+		item.RoleId = employee.RoleId;
+		item.SalaryPerDay = employee.SalaryPerDay;
+		item.IsActive = employee.IsActive;
+	
+		await _appDbContext.SaveChangesAsync();
+		return item;
+
     }
 }

@@ -26,4 +26,5 @@ public class Employee
     public string Address { get; set; }
     public double SalaryPerDay { get; set; }
     public DateTime DateHired { get; set; }
+	public bool IsActive { get; set; }
 }
