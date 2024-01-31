@@ -25,16 +25,16 @@ public class ProductService : IProductService
 
     public async Task<ProductDto> CreateProduct(ProductDto product)
     {
-       var productItem = product.MapToDbo();
-       if (productItem.TypeId == 0)
-       {
+        var productItem = product.MapToDbo();
+        if (productItem.TypeId == 0)
+        {
             throw new Exception("Type id cannot be null or 0");
-       }
-       productItem.Type = await _productTypeRepository.GetProductTypeById(productItem.TypeId);
-       if (productItem.Type == null)
-       {
+        }
+        productItem.Type = await _productTypeRepository.GetProductTypeById(productItem.TypeId);
+        if (productItem.Type == null)
+        {
             throw new Exception("Type is does not exist");
-       }
+        }
 
         var item = new Product
         {
@@ -46,8 +46,8 @@ public class ProductService : IProductService
             CreatedOn = product.CreatedOn,
         };
 
-       var itemDbo = await _productRepository.CreateProduct(item);
-       return itemDbo.MapToDto();
+        var itemDbo = await _productRepository.CreateProduct(item);
+        return itemDbo.MapToDto();
     }
 
     public async Task<ProductDto> UpdateProduct(int productId, ProductDto product)
@@ -80,5 +80,57 @@ public class ProductService : IProductService
     {
         var items = await _productRepository.GetAllProducts();
         return items.MapToDtos();
+    }
+
+    public async Task<IEnumerable<ProductDto>> GetAllBeverage()
+    {
+        var items = await _productRepository.GetAllProducts();
+        if (items.Count() == 0)
+        {
+            return Enumerable.Empty<ProductDto>();
+        }
+        var beverage = items.Where(x => x.Type.IsBeverage == true);
+        return beverage.MapToDtos();
+    }
+
+    public async Task<IEnumerable<ProductDto>> GetAllNonBeverage()
+    {
+        var items = await _productRepository.GetAllProducts();
+        if (items.Count() == 0)
+        {
+            return Enumerable.Empty<ProductDto>();
+        }
+        var nonBeverage = items.Where(x => x.Type.IsBeverage == false);
+        return nonBeverage.MapToDtos();
+    }
+    public async Task<IEnumerable<ProductDto>> GetProductsByType(int typeId)
+    {
+        var items = await _productRepository.GetProductsByType(typeId);
+        return items.MapToDtos();
+    }
+
+    public async Task<ProductDto> UpdateProductQuantity(int productId, int quantity)
+    {
+        var item = await _productRepository.GetProductById(productId);
+        if (item == null)
+        {
+            throw new ArgumentException("cannot find product");
+        }
+        var availableQuantity = item.QuantityAvailable;
+        availableQuantity += quantity;
+        item.QuantityAvailable = availableQuantity;
+        if (item.QuantityAvailable >= 0)
+        {
+            try
+            {
+                await _productRepository.UpdateProduct(productId, item);
+                return item.MapToDto();
+            }
+            catch
+            {
+                throw new Exception("update not successful");
+            }
+        }
+        return item.MapToDto();
     }
 }

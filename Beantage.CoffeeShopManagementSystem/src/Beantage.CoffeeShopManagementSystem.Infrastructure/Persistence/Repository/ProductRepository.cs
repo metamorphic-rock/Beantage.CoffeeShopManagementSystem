@@ -35,17 +35,6 @@ public class ProductRepository : IProductRepository
         _appDbContext.Products.Remove(item);
         await _appDbContext.SaveChangesAsync();
     }
-
-    public Task<IEnumerable<Product>> GetAllBeverage()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<IEnumerable<Product>> GetAllNonBeverage()
-    {
-        throw new NotImplementedException();
-    }
-
     public async Task<IEnumerable<Product>> GetAllProducts()
     {
         var items = _appDbContext.Products.ToList();
@@ -58,9 +47,14 @@ public class ProductRepository : IProductRepository
        return item;
     }
 
-    public Task<IEnumerable<Product>> GetProductsByType(int typeId)
+    public async Task<IEnumerable<Product>> GetProductsByType(int typeId)
     {
-        throw new NotImplementedException();
+        var item = await _appDbContext.Products.Where(x => x.TypeId == typeId).ToListAsync();
+        if (item == null)
+        {
+            throw new Exception("new product with this type is found");
+        }
+        return item;
     }
 
     public async Task UpdateProduct(int productId, Product product)

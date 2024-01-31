@@ -13,8 +13,6 @@ public interface IProductRepository
     public Task UpdateProduct(int productId, Product product);
     public Task<IEnumerable<Product>> GetAllProducts();
     public Task<IEnumerable<Product>> GetProductsByType(int typeId);
-    public Task<IEnumerable<Product>> GetAllBeverage();
-    public Task<IEnumerable<Product>> GetAllNonBeverage();
     public Task<Product> GetProductById(int productId);
     public Task DeleteProduct(int productId);
 }
