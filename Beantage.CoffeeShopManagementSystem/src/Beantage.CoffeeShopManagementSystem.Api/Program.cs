@@ -11,10 +11,15 @@ builder.Services.AddControllers();
 // Add services to the container.
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductTypeService, ProductTypeService>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<ISaleService, SaleService>();
 
 // Add repositories to the container
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductTypeRepository, ProductTypeRepository>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IEmployeeRoleRepository, EmployeeRoleRepository>();
+builder.Services.AddScoped<ISaleRepository, SaleRepository>();
 
 // Add db conection
 builder.Services.ImplementPersistance(builder.Configuration);
