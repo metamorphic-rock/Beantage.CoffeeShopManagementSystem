@@ -62,4 +62,14 @@ public class ProductRepository : IProductRepository
         var item = _appDbContext.Products.Update(product);
         await _appDbContext.SaveChangesAsync();
     }
+
+	Task<IEnumerable<Product>> IProductRepository.GetAllBeverage()
+	{
+		throw new NotImplementedException();
+	}
+
+	Task<IEnumerable<Product>> IProductRepository.GetAllNonBeverage()
+	{
+		throw new NotImplementedException();
+	}
 }
