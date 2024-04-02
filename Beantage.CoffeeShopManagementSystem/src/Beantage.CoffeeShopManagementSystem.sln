@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beantage.CoffeeShopManageme
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beantage.CoffeeShopManagementSystem.Domain", "Beantage.CoffeeShopManagementSystem.Domain\Beantage.CoffeeShopManagementSystem.Domain.csproj", "{A2F8115D-530D-46BA-B0C7-C5FFCA124CB8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beantage.CoffeeShopManagementSystem.Frontend", "Beantage.CoffeeShopManagementSystem.Frontend\Beantage.CoffeeShopManagementSystem.Frontend.csproj", "{732987CE-0C5E-45B0-AE8E-20519BA6DA19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beantage.CoffeeShopManagementSystem.FE", "Beantage.CoffeeShopManagementSystem.Frontend\Beantage.CoffeeShopManagementSystem.FE.csproj", "{732987CE-0C5E-45B0-AE8E-20519BA6DA19}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beantage.CoffeeShopManagementSystem.Infrastructure", "Beantage.CoffeeShopManagementSystem.Infrastructure\Beantage.CoffeeShopManagementSystem.Infrastructure.csproj", "{10E1D81A-8B4D-4086-AFDF-8F9DD8906ACF}"
 EndProject
