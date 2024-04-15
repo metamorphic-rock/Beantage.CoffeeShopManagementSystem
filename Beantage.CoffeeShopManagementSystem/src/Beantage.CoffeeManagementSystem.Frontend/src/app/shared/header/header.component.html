@@ -1,18 +1,17 @@
-<header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-page="">Beantage Management Center</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" routerLink="/login">LoginTest</a>
-                    </li>
-                </ul>
-            </div>
+<header class="container">
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center" *ngIf="!isLoginPage()">
+          <h1 class="navbar-brand">Welcome Back {{user}}</h1>
+          <ul class="navbar-nav flex-grow-1 justify-content-end">
+              <li class="nav-item">
+                  <a class="nav-link text-dark" routerLink="/login">Logout</a>
+              </li>
+          </ul>
         </div>
-    </nav>
+        <div class="container" *ngIf="isLoginPage()">
+          <h1 class="navbar-brand">Beantage Management Center</h1>
+        </div>
+      </div>
+  </nav>
 </header>
