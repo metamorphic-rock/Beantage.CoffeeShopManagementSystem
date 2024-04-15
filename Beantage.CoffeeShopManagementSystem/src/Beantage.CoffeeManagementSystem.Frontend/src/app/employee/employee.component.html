@@ -6,12 +6,18 @@
 
         <!-- Main Content -->
         <div id="content">
-                
             <!-- Begin Page Content -->
             <div class="container-fluid">
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Employee Management</h1>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1 class="h3 mb-0 text-gray-800">Employee Management</h1>
+              </div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4 class="m-0 font-weight-bold">Employees</h4>
+                  <button class="btn btn-success" type="button" data-toggle="modal" data-target="#myModal">Add Employee</button>
                 </div>
+                <app-employee-list-table></app-employee-list-table>
+                <h4 class="m-0 font-weight-bold">Attendances</h4>
+                <app-attendances></app-attendances>
             </div>
         </div>
     </div>

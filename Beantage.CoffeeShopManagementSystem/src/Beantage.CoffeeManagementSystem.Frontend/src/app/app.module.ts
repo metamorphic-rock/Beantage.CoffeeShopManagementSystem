@@ -16,6 +16,10 @@ import { EmployeeComponent } from './employee/employee.component';
 import { ProductsTableComponent } from './inventory/products-table/products-table.component';
 import { AddProductModalComponent } from './inventory/add-product-modal/add-product-modal.component';
 import { FormsModule } from '@angular/forms';
+import { EmployeeListTableComponent } from './employee/employee-list-table/employee-list-table.component';
+import { RawIngredientsTableComponent } from './inventory/raw-ingredients-table/raw-ingredients-table.component';
+import { MiscellaneousMaterialsTableComponent } from './inventory/miscellaneous-materials-table/miscellaneous-materials-table.component';
+import { AttendancesComponent } from './employee/attendances/attendances.component';
 
 const appRoutes : Routes = [
   {path: 'login', component : LoginComponent},
@@ -39,7 +43,11 @@ const appRoutes : Routes = [
     PointOfSaleComponent,
     EmployeeComponent,
     ProductsTableComponent,
-    AddProductModalComponent
+    AddProductModalComponent,
+    EmployeeListTableComponent,
+    RawIngredientsTableComponent,
+    MiscellaneousMaterialsTableComponent,
+    AttendancesComponent
   ],
   imports: [
     BrowserModule,

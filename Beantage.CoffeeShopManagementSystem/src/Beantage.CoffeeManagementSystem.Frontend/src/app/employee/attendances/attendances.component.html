@@ -1,0 +1,34 @@
+<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Employee Name</th>
+        <th>{{formatDate(dateToday.getDate() -6 )}}</th>
+        <th>{{formatDate(dateToday.getDate() -5 )}}</th>
+        <th>{{formatDate(dateToday.getDate() -4 )}}</th>
+        <th>{{formatDate(dateToday.getDate() -3 )}}</th>
+        <th>{{formatDate(dateToday.getDate() -2 )}}</th>
+        <th>{{formatDate(dateToday.getDate() -1 )}}</th>
+        <th>{{formatDate(dateToday.getDate())}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <!--Formatted time should be replaced by the actual checkin time saved in the server once connected to the API-->
+            <button class="btn btn-primary" (click)="checkIn()" [disabled]="checkedIn">Time In <span *ngIf="checkedIn">- {{formattedTime}}</span></button>
+            <button class="btn btn-danger" *ngIf="checkedIn" (click)="checkOut()">Time Out <span> - {{formattedTime}}</span></button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
