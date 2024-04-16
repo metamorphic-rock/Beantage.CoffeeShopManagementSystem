@@ -1,17 +1,29 @@
 <div id="wrapper">
-
     <app-navbar></app-navbar>
-    <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
-        <!-- Main Content -->
         <div id="content">
-                
-            <!-- Begin Page Content -->
             <div class="container-fluid">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Point Of Sale</h1>
                 </div>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Search for products" aria-label="Product search" aria-describedby="button-addon2">
+                  <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <app-product-list></app-product-list>
+                </div>
+                <div class="col-md-6">
+                  <app-order-preview></app-order-preview>
+                </div>
+              </div>
+              <div class="row">
+                
+              </div>
             </div>
         </div>
     </div>

@@ -20,6 +20,11 @@ import { EmployeeListTableComponent } from './employee/employee-list-table/emplo
 import { RawIngredientsTableComponent } from './inventory/raw-ingredients-table/raw-ingredients-table.component';
 import { MiscellaneousMaterialsTableComponent } from './inventory/miscellaneous-materials-table/miscellaneous-materials-table.component';
 import { AttendancesComponent } from './employee/attendances/attendances.component';
+import { ProductListComponent } from './point-of-sale/product-list/product-list.component';
+import { OrderPreviewComponent } from './point-of-sale/order-preview/order-preview.component';
+import { ItemDetailComponent } from './point-of-sale/item-detail/item-detail.component';
+import { ItemDetailModalComponent } from './point-of-sale/item-detail-modal/item-detail-modal.component';
+import { OrderItemModalComponent } from './point-of-sale/order-item-modal/order-item-modal.component';
 
 const appRoutes : Routes = [
   {path: 'login', component : LoginComponent},
@@ -47,7 +52,12 @@ const appRoutes : Routes = [
     EmployeeListTableComponent,
     RawIngredientsTableComponent,
     MiscellaneousMaterialsTableComponent,
-    AttendancesComponent
+    AttendancesComponent,
+    ProductListComponent,
+    OrderPreviewComponent,
+    ItemDetailComponent,
+    ItemDetailModalComponent,
+    OrderItemModalComponent
   ],
   imports: [
     BrowserModule,
